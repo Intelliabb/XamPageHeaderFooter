@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<local:BaseContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:XamHeaderFooter" 
+    x:Class="XamHeaderFooter.MainPage"
+    Title="Home">
+    <StackLayout VerticalOptions="Center">
+        <Button Text="Header Page" Clicked="Handle_Clicked" CommandParameter="0"/>
+        <Button Text="Footer Page" Clicked="Handle_Clicked" CommandParameter="1"/>
+        <Button Text="Header And Footer Page" Clicked="Handle_Clicked" CommandParameter="2"/>
+    </StackLayout>
+</local:BaseContentPage>
