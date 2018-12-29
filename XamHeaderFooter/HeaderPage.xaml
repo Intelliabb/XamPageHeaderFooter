@@ -6,5 +6,6 @@
         Title="Header Page"
         Template="Header">
     <ContentPage.Content>
+        <ListView x:Name="NamesList"/>
     </ContentPage.Content>
 </local:BaseContentPage>

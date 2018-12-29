@@ -51,28 +51,34 @@ namespace XamHeaderFooter
         public HeaderView()
         {
             BuildView();
+            BackgroundColor = Color.CadetBlue;
         }
 
         void BuildView()
         {
-            Padding = 12;
+            Padding = 0;
+            var style = new Style(typeof(Label))
+            {
+                Setters =
+                {
+                    new Setter { Property = Label.TextColorProperty, Value = Color.White },
+                    new Setter { Property = Label.VerticalTextAlignmentProperty, Value = TextAlignment.Center }
+                }
+            };
             Content = new StackLayout
             {
                 Children = {
                     new StackLayout {
+                        Padding = 6,
                         Orientation = StackOrientation.Horizontal,
-                        HorizontalOptions= LayoutOptions.Center,
+                        HorizontalOptions= LayoutOptions.End,
                         Children =
                         {
-                            new Label { Text = "Status:" },
-                            new Label { Text = "Online" },
-                            new Label { Text = "|" },
-                            new Label { Text = "Bal:" },
-                            new Label { Text = "$32.98" },
-                            new Image { Source = "info", Aspect = Aspect.AspectFit, HeightRequest = 16, WidthRequest = 16}
+                            new Label { Text = "Points:", Style = style },
+                            new Label { Text = "480", FontAttributes = FontAttributes.Bold, Style = style }
                         }
                     },
-                    new ContentPresenter { VerticalOptions= LayoutOptions.FillAndExpand }
+                    new ContentPresenter { VerticalOptions= LayoutOptions.FillAndExpand, BackgroundColor=Color.White  }
                 }
             };
         }
@@ -83,17 +89,17 @@ namespace XamHeaderFooter
         public FooterView()
         {
             BuildView();
+            BackgroundColor = Color.FromHex("#F0F0F0");
         }
 
         void BuildView()
         {
-            Padding = 12;
+            Padding = new Thickness(0, 0, 0, 16);
             Content = new StackLayout
             {
-                HorizontalOptions = LayoutOptions.Center,
                 Children = {
-                    new ContentPresenter { VerticalOptions= LayoutOptions.FillAndExpand },
-                    new Label { Text = $"Last updated: {DateTime.Now.AddMinutes(-1)}" }
+                    new ContentPresenter { VerticalOptions= LayoutOptions.FillAndExpand, BackgroundColor=Color.White  },
+                    new Label { Text = $"Last updated: {DateTime.Now.AddMinutes(-1)}", HorizontalTextAlignment= TextAlignment.Center }
                 }
             };
         }
@@ -104,30 +110,37 @@ namespace XamHeaderFooter
         public HeaderFooterView()
         {
             BuildView();
+            BackgroundColor = Color.FromHex("#F0F0F0");
         }
 
         void BuildView()
         {
-            Padding = 12;
+            Padding = new Thickness(0, 12, 0, 16);
+            var style = new Style(typeof(Label)) {
+                Setters =
+                {
+                    new Setter { Property = Label.FontSizeProperty, Value = 12 }
+                }
+            };
+
             Content = new StackLayout
             {
-                HorizontalOptions = LayoutOptions.Center,
                 Children = {
                     new StackLayout {
                         HorizontalOptions = LayoutOptions.Center,
                         Orientation = StackOrientation.Horizontal,
                         Children =
                         {
-                            new Label { Text = "Status:" },
-                            new Label { Text = "Online" },
-                            new Label { Text = "|" },
-                            new Label { Text = "Bal:" },
-                            new Label { Text = "$32.98" },
-                            new Image { Source = "info", Aspect = Aspect.AspectFit, HeightRequest = 12, WidthRequest = 12}
+                            new Label { Text = "Status:", Style = style },
+                            new Label { Text = "Online", Style = style },
+                            new Label { Text = "|", Style = style },
+                            new Label { Text = "Bal:", Style = style },
+                            new Label { Text = "$32.98", Style = style },
+                            new Image { Source = "info", Aspect = Aspect.AspectFit, HeightRequest = 16, WidthRequest = 16 }
                         }
                     },
-                    new ContentPresenter { VerticalOptions= LayoutOptions.FillAndExpand },
-                    new Label { Text = $"Last updated: {DateTime.Now.AddMinutes(-1)}" }
+                    new ContentPresenter { VerticalOptions= LayoutOptions.FillAndExpand, BackgroundColor=Color.White },
+                    new Label { Text = $"Last updated: {DateTime.Now.AddMinutes(-1)}", HorizontalTextAlignment= TextAlignment.Center, Style = style }
                 }
             };
         }

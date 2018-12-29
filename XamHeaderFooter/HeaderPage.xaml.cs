@@ -10,6 +10,18 @@ namespace XamHeaderFooter
         public HeaderPage()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        void LoadData()
+        {
+            NamesList.ItemsSource = new string[] {
+                "Homer",
+                "Marge",
+                "Lisa",
+                "Bart",
+                "Maggie"
+            };
         }
     }
 }

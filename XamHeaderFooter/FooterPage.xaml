@@ -4,5 +4,6 @@
                        Title="Footer Page"
                        Template="Footer">
     <ContentPage.Content>
+        <ListView x:Name="NamesList"/>
     </ContentPage.Content>
 </local:BaseContentPage>
